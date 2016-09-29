@@ -7,8 +7,8 @@ dashboard.addWidget('clock_widget', 'Clock');
 dashboard.addWidget('new_users_widget', 'Number', {
     getData: function () {
         var self = this;
-        $.get('widgets/new_users_widget/', function(data) {
-            $.extend(self.data, data);
+        $.get('widgets/new_users_widget/', function(scope) {
+            $.extend(self.scope, scope);
         });
     },
     interval: 5000
@@ -16,7 +16,7 @@ dashboard.addWidget('new_users_widget', 'Number', {
 
 dashboard.addWidget('buzzwords_widget', 'List', {
     getData: function () {
-        $.extend(this.data, {
+        $.extend(this.scope, {
             title: 'Buzzwords',
             more_info: '# of times said around the office',
             updated_at: 'Last updated at 18:58',
@@ -35,15 +35,15 @@ dashboard.addWidget('buzzwords_widget', 'List', {
 
 dashboard.addWidget('convergence_widget', 'Graph', {
     getData: function () {
-        $.extend(this.data, {
+        $.extend(this.scope, {
             title: 'Convergence',
             value: Math.floor(Math.random() * 50) + 40,
             more_info: '',
             data: [
-                    { x: 0, y: Math.floor(Math.random() * 50) + 40 }, 
-                    { x: 1, y: Math.floor(Math.random() * 50) + 40 }, 
-                    { x: 2, y: Math.floor(Math.random() * 50) + 40 }, 
-                    { x: 3, y: Math.floor(Math.random() * 50) + 40 }, 
+                    { x: 0, y: Math.floor(Math.random() * 50) + 40 },
+                    { x: 1, y: Math.floor(Math.random() * 50) + 40 },
+                    { x: 2, y: Math.floor(Math.random() * 50) + 40 },
+                    { x: 3, y: Math.floor(Math.random() * 50) + 40 },
                     { x: 4, y: Math.floor(Math.random() * 50) + 40 }
                 ]
             });
