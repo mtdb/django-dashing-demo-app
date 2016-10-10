@@ -7,7 +7,7 @@ dashboard.addWidget('clock_widget', 'Clock');
 dashboard.addWidget('new_users_widget', 'Number', {
     getData: function () {
         var self = this;
-        $.get('widgets/new_users_widget/', function(scope) {
+        Dashing.utils.get('new_users_widget', function(scope) {
             $.extend(self.scope, scope);
         });
     },
